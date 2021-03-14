@@ -40,7 +40,12 @@ the limit or offset, respectively.
 
 Example:
 ```bash
-$ mbta.sh predictions --filter route Red --filter stop place-sstat --include trip,vehicle --fields id --page-limit 1
+$ mbta.sh predictions \
+    --filter route Red \
+    --filter stop place-sstat \
+    --include trip,vehicle \
+    --fields id \
+    --page-limit 1
 ```
 
 Response:
