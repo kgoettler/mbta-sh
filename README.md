@@ -36,7 +36,8 @@ relationships must be provided after the flag.
 returned. Each of these require an additional argument specifying the limit or
 offset, respectively.
 
-Example:
+### Example
+
 ```bash
 $ mbta.sh predictions \
     --filter route Red \
@@ -46,7 +47,7 @@ $ mbta.sh predictions \
     --page-limit 1
 ```
 
-Response:
+### Response
 ```json
 {
   "data": [
