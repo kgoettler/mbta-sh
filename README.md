@@ -4,8 +4,8 @@ Command line utility for querying the MBTA V3 API written in Bash
 
 ## Dependencies
 
-`mbta.sh` requires `curl` (for performing calls) and `jq` (for
-pretty-printing responses).
+- `curl` (for performing calls) 
+- `jq` (for pretty-printing responses)
 
 If you have an MBTA V3 API key, it should be stored in an environment variable called
 `MBTA_API_KEY`. Note that an API key is not required, however it is recommended
@@ -16,27 +16,25 @@ that you have one to avoid usage limits. Keys are available for free at
 
 All of the available calls and required/optional arguments provided by the MBTA
 V3 API are implemented in `mbta.sh` For more information on these, visit the
-[V3 API documentation](https://api-v3.mbta.com/docs/swagger/index.html). A
-brief description of how to structure your queries with `mbta.sh` is provided
-below.
+[V3 API documentation](https://api-v3.mbta.com/docs/swagger/index.html). 
 
-Calling `mbta.sh` without the `id` argument will request a list of entities
-(e.g. routes, route\_patterns, stops, etc.). Usually these are performed with
-filters, and some calls explicitly require certain filters to return any
-results. Calling `mbta.sh` with the `id` positional argument will return a single
-instance of an entity (e.g. route, route\_pattern, stop, etc.). 
+Calls without the optional `id` positional argument will request a list of
+entities (e.g. routes, route\_patterns, stops, etc.). Calls with an `id` will
+return a single instance of an entity (e.g. route, route\_pattern, stop, etc.). 
 
-Filters are added with the `--filter` flag. A field and a value to filter with
-must be provided after the flag. Multiple filters can be chained together to
-perform more complex queries.
+`--filter` allows you to add filters. A field and a value to filter with must
+be provided after the flag. Multiple filters can be chained together to perform
+more complex queries.
 
-Includes and fields are added in much the same way with the `--include` and
-`--fields` flag, respectively. A comma-separated list of relationships (or fields)
-to include must be provided after the flag.
+`--include` allows you to specify relationships to include. A comma-separated
+list of relationships must be provided after the flag. 
 
-You can limit the number of entities returned with the `--page-limit` and
-`--page-offset` flags. Each of these require an additional argument specifying
-the limit or offset, respectively.
+`--fields` allows you to specify fields to include. A comma-separated list of
+relationships must be provided after the flag. 
+
+`--page-limit` and `--page-offset`  can be used to limit the number of entities
+returned. Each of these require an additional argument specifying the limit or
+offset, respectively.
 
 Example:
 ```bash
