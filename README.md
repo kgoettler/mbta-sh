@@ -2,6 +2,16 @@
 
 Command line utility for querying the MBTA V3 API written in Bash
 
+## Dependencies
+
+`mbta.sh` requires `curl` (for performing calls) and `jq` (for
+pretty-printing responses).
+
+If you have an MBTA V3 API key, it should be stored in an environment variable called
+`MBTA_API_KEY`. Note that an API key is not required, however it is recommended
+that you have one to avoid usage limits. Keys are available for free at
+[api-v3.mbta.com](api-v3.mbta.com). 
+
 ## Usage
 
 All of the available calls and required/optional arguments provided by the MBTA
@@ -10,8 +20,7 @@ V3 API are implemented in `mbta.sh` For more information on these, visit the
 brief description of how to structure your queries with `mbta.sh` is provided
 below.
 
-
-### Without id
+#### Without id
 
 Calling `mbta.sh` without the `id` argument will request a list of entities
 (e.g. routes, route\_patterns, stops, etc.). Usually these are performed with
@@ -38,7 +47,7 @@ $ mbta.sh predictions --filter route Red --filter stop place-sstat --include tri
 $ mbta.sh predictions --filter route Red --filter stop place-sstat --include trip,vehicle --fields id
 ```
 
-### With id
+#### With id
 
 Calling `mbta.sh` with the `id` positional argument will return a single
 instance of an entity (e.g. route, route\_pattern, stop, etc.).
